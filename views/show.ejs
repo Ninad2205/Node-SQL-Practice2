@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Students</title>
+    <style>
+                h1 {
+            text-decoration: underline;
+            text-align: center;
+            font-size: 50px;
+            color: rgb(255, 0, 115);
+        }
+
+        .mainTable {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 90px;
+        }
+
+        th,
+        td {
+            border: solid rgb(19, 61, 138) 2px;
+            padding: 5px;
+        }
+
+        th {
+            background-color: tomato;
+            color: white;
+            height: 50px;
+        }
+
+        td {
+            margin: 0px;
+            /* background-color: rgb(232, 208, 253); */
+            height: 30px;
+
+        }
+
+        table {
+            width: 1000px;
+            background-color: rgb(200, 253, 253);
+            border-collapse: collapse;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #dacece;
+            /* Light gray color */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #ffffff;
+            /* White color */
+        }
+
+        
+        .redirect{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(0, 208, 255);
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+            height: 35px;
+            width: 180px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border: 1px solid black;
+
+        }
+
+        .redirect:hover {
+            background-color: rgb(0, 157, 229);
+        }
+
+        .btncontainer {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .newUser{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(0, 208, 255);
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+            height: 35px;
+            width: 180px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border: 1px solid black;
+
+        }
+
+        .newUser:hover {
+            background-color: rgb(0, 157, 229);
+        }
+    </style>
+</head>
+<body>
+    <h1>Students List</h1>
+    <br>
+    <form action="http://localhost:4000/">
+        <div class="btncontainer">
+            <button class="redirect">Back To Home</button>
+        </div>
+    </form>
+    <form action="http://localhost:4000/newstudent">
+        <div class="btncontainer">
+            <button class="newUser">Add Student</button>
+        </div>
+    </form>
+    <br>
+    <div class="mainTable">
+        <table>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Branch</th>
+                <th>Edit Student Info</th>
+                <th>Delete Student</th>
+            </tr>
+            <tbody>
+                <% for(student of students) { %>
+                    <tr>
+                        <td>
+                            <%= student.id %>
+                        </td>
+                        <td>
+                            <%= student.name %>
+                        </td>
+                        <td>
+                            <%= student.email %>
+                        </td>
+                        <td>
+                            <%= student.branch %>
+                        </td>
+                        <td>
+                            <form action="/student/<%= student.id %>/edit">
+                                <button>Edit Student</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/student/<%= student.id %>/delete">
+                                <button>Delete Student</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</body>
+</html>

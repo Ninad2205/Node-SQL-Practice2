@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "method-override": "^3.0.0",
+    "mysql2": "^3.10.3",
+    "uuid": "^10.0.0"
+  },
+  "name": "backend-practice-sql-and-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ninad Jadhav",
+  "license": "ISC",
+  "description": ""
+}

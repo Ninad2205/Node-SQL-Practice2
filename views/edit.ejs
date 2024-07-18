@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student Info</title>
+    <style>
+    body{
+        background-color: black;
+    }
+    /* .formcontainer {
+        background-color: bisque;
+        height: 400px;
+        width: 400px;
+        align-content: center;
+        justify-content: center;
+    }*/
+    .main{
+     
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+
+    } 
+
+
+.editform{
+/* background-color: aqua; */
+
+padding: 20px;
+height: 250px;
+}
+.inp{
+border: 1px solid black;
+border-radius: 5px;
+margin: 10px;
+margin-top: 0px;
+margin-bottom: 10px;
+padding: 8px;
+width: 230px;
+background-color: rgb(210, 218, 217);
+}
+.textA{
+border: 1px solid black;
+border-radius: 5px;
+margin: 10px;
+height: 120px;
+padding: 8px;
+width: 230px;
+background-color: rgb(213, 223, 222);
+
+}
+.submitBtn{
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: rgb(0, 208, 255);
+transition: background-color 0.5s ease;
+cursor: pointer;
+height: 35px;
+width: 180px;
+border-radius: 5px;
+margin-top: 10px;
+border: 1px solid black;
+
+}
+.submitBtn:hover{
+background-color: rgb(0, 157, 229);
+}
+.submitContainer{
+display: flex;
+justify-content: center;
+
+}
+.formcontainer{
+/* display: flex; */
+background-color: rgb(255, 255, 255) ;
+
+height: 400px;
+width: 300px;
+/* align-items: center; */
+justify-content: center;
+margin: auto;
+margin-top: 50px;
+border-radius: 20px;
+border: 2px solid rgb(10, 216, 252);
+}
+
+h3{
+color: rgb(255, 238, 0);
+text-align: center;
+margin-top: 20px;
+}
+</style>
+</head>
+<body>
+    <h1>Edit Student</h1>
+    <div class="main">
+        <div class="formcontainer">
+            <h3>Student Email: <%= student.email %>
+            </h3>
+            
+            <form class="editform" method="post" action="/student/<%= student.id %>?_method=PATCH">
+                <input type="text" class="inp" name="name" value="<%= student.name %>">
+                <input type="text" class="inp" name="branch" value="<%= student.branch %>">
+                <input class="inp" type="password" name="password" placeholder="enter password">
+                <br>
+                <div class="submitContainer">
+                    <button class="submitBtn">Submit</button>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+</body>
+</html>
